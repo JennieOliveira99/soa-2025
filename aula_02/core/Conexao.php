@@ -122,7 +122,7 @@ $conexao = Conexao::getInstance();
 
 // $sql = 'UPDATE cliente SET nome = ?, sexo = ?, idade = ? WHERE id = ?';
 // $stmt = $conexao->prepare($sql);
-// $retorno = $stmt->execute(['João Editado', 'M', 45, 8]);
+// $retorno = $stmt->execute(['João Editado', 'M', 45, 1]);
 
 // if ($retorno) {
 //     echo 'Editado com sucesso';
@@ -131,24 +131,24 @@ $conexao = Conexao::getInstance();
 // }
 
 
-$sql = 'INSERT INTO cliente (nome, sexo, idade) VALUES (?, ?, ?)';
-$stmt = $conexao->prepare($sql);
-$retorno = $stmt->execute(['João', 'M', 30]);
-
-if ($retorno) {
-    echo 'Inserido com sucesso';
-} else {
-    echo 'Falha ao inserir';
-}
-
-// $sql = 'SELECT * FROM cliente ORDER BY id';
+// $sql = 'INSERT INTO cliente (nome, sexo, idade) VALUES (?, ?, ?)';
 // $stmt = $conexao->prepare($sql);
-// $stmt->execute();
-// $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
+// $retorno = $stmt->execute(['Kira', 'F', 11]);
 
-// echo "<pre>";
-// var_dump($clientes);
+// if ($retorno) {
+//     echo 'Inserido com sucesso';
+// } else {
+//     echo 'Falha ao inserir';
+// }
+
+$sql = 'SELECT * FROM cliente ORDER BY id';
+$stmt = $conexao->prepare($sql);
+$stmt->execute();
+$clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$cliente = $stmt->fetch(PDO::FETCH_ASSOC);
+
+echo "<pre>";
+var_dump($clientes);
 
 // FETCH_ASSOC
 // echo $clientes['id'];
